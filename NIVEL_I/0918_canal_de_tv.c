@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-void canal(int num)
+void canais_de_tv(int numero)
 {
-    switch(num)
+    switch(numero)
     {
         case 2:
             printf("SBT\n");
@@ -27,9 +27,9 @@ void canal(int num)
 
 int main(void)
 {
-    int num;
+    int numero;
     printf("Digite um numero de um canal de tv:\n");
-    scanf("%d", &num);
-    canal(num);
+    scanf("%d", &numero);
+    canais_de_tv(numero);
     return(0);
 }

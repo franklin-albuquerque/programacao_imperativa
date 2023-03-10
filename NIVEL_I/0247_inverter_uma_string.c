@@ -1,27 +1,26 @@
 #include <stdio.h>
 #include <string.h>
-#define LIMITE 255
+#define TAM_MAX_STR 255
 
-void inverte(char string[])
+void inverter(char string[])
 {
-    int i, j, k;
-    char invertida[LIMITE];
+    int tamanho = strlen(string) - 1;
 
-    for(i = strlen(string) - 2, j = 0; i >= 0; i--, j++)
+    for(int i = 0, j = tamanho; i < j; i++, j--)
     {
-        invertida[j] = string[i];
-    }
-    for(k = 0; k < j; k++)
-    {
-        string[k] = invertida[k];
+        char caractere = string[i];
+        string[i] = string[j];
+        string[j] = caractere;
     }
 }
 
 int main(void)
 {
-    char string[LIMITE];
-    fgets(string, LIMITE, stdin);
-    inverte(string);
+    char string[TAM_MAX_STR + 1];
+    fgets(string, TAM_MAX_STR + 1, stdin);
+
+    inverter(string);
     printf("%s", string);
+
 	return(0);
 }

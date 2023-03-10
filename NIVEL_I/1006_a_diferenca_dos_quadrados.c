@@ -1,24 +1,28 @@
 #include <stdio.h>
+#include <stdbool.h>
 
-int elevaAoQuadrado(int num)
+int elevar_ao_quadrado(int x)
 {
-    return(num * num);
+    return(x * x);
 }
 
 int main(void)
 {
-    int x;
-
-    do
+    while(true)
     {
-        scanf("%d", &x);
-        int xy = x / 2, xz = xy + 1;
+        int numero;
+        scanf("%d", &numero);
 
-        if(x != 0)
+        if(numero == 0)
         {
-            printf("%d - %d\n", elevaAoQuadrado(xz), elevaAoQuadrado(xy));
+            break;
         }
-    } while(x > 0);
+        else
+        {
+            int a = numero / 2, b = a + 1;
+            printf("%d - %d\n", elevar_ao_quadrado(b), elevar_ao_quadrado(a));
+        }
+    }
 
     return(0);
 }

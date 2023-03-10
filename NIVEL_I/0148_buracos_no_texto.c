@@ -1,55 +1,28 @@
 #include <stdio.h>
 #include <string.h>
+#define TAM_MAX_STR 100
 
-int conta_buracos(char strings[])
+int contar_buracos(char string[])
 {
-    int i, j, buracos = 0;
+    int buracos = 0;
 
-    for(i = 0, j = 0; j < strlen(strings); j++)
+    for(int i = 0; i < strlen(string); i++)
     {
-        switch(strings[i][j])
+        char caractere = string[i];
+
+        switch(caractere)
         {
-            case 'a':
+            case 'a': case 'A': case 'b': case 'd': case 'D': case 'g': case 'o':
+            case 'O': case 'p': case 'P': case 'q': case 'Q': case 'R':
+            {
                 buracos++;
-
-            case 'A':
-                buracos++;
-
-            case 'b':
-                buracos++;
-
+                continue;
+            }
             case 'B':
+            {
                 buracos += 2;
-
-            case 'd':
-                buracos++;
-
-            case 'D':
-                buracos++;
-
-            case 'g':
-                buracos++;
-
-            case 'o':
-                buracos++;
-
-            case 'O':
-                buracos++;
-
-            case 'p':
-                buracos++;
-
-            case 'P':
-                buracos++;
-
-            case 'q':
-                buracos++;
-
-            case 'Q':
-                buracos++;
-
-            case 'R':
-                buracos++;
+                continue;
+            }
         }
     }
 
@@ -58,14 +31,15 @@ int conta_buracos(char strings[])
 
 int main(void)
 {
-    int limite, i;
-    scanf("%d", &limite);
-    char strings[limite][100];
+    int limite;
+    scanf("%d\n", &limite);
 
-    for(i = 0; i < limite; i++)
+    char string[TAM_MAX_STR + 1];
+
+    for(int i = 0; i < limite; i++)
     {
-        fgets(strings[i], 100, stdin);
-        printf("%d\n", conta_buracos(strings[i]));
+        fgets(string, TAM_MAX_STR + 1, stdin);
+        printf("%d\n", contar_buracos(string));
     }
 
 	return(0);

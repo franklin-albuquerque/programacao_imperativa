@@ -1,20 +1,21 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#define TAM_MAX_STR 50
 
-bool saoDiferentes(char string_1[], char string_2[])
+bool sao_diferentes(char primeira_str[], char segunda_str[])
 {
-    return(strcmp(string_1, string_2));
+    return(strcmp(primeira_str, segunda_str));
 }
 
 int main(void)
 {
-    char string_1[50], string_2[50];
-    fgets(string_1, 50, stdin);
-    //string_1[strlen(string_1) - 1] = '\0';      //Necessário no TheHuxley.
-    fgets(string_2, 50, stdin);
+    char prim_string[TAM_MAX_STR + 1], seg_string[TAM_MAX_STR + 1];
 
-    if(saoDiferentes(string_1, string_2))
+    fgets(primeira_str, TAM_MAX_STR + 1, stdin);
+    fgets(segunda_str, TAM_MAX_STR + 1, stdin);
+
+    if(sao_diferentes(primeira_str, segunda_str))
     {
         printf("DIFERENTES\n");
     }

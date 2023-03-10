@@ -8,19 +8,21 @@ bool bissexto(int ano)
 
 int main(void)
 {
-    int ano_inicio, ano_final, ano_tmp, cont;
-    scanf("%d %d", &ano_inicio, &ano_final);
+    int ano_inicial, ano_final;
+    scanf("%d %d", &ano_inicial, &ano_final);
 
-    for(ano_tmp = ano_inicio, cont = 0; ano_final >= ano_tmp; ano_tmp++)
+    bool tem_bissexto = false;
+
+    for(int ano = ano_inicial; ano_final >= ano; ano++)
     {
-        if(bissexto(ano_tmp))
+        if(bissexto(ano))
         {
-            printf("%d\n", ano_tmp);
-            cont++;
+            printf("%d\n", ano);
+            tem_bissexto = true;
         }
     }
 
-    if(cont == 0)
+    if(!tem_bissexto)
     {
         printf("-1\n");
     }

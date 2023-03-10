@@ -1,37 +1,27 @@
 #include <stdio.h>
 #include <string.h>
 
-void inverte(char string[], int n)
+void inverter(char string[], int tamanho)
 {
-    int i, j, k;
-    char invertida[n];
-
-    for(i = strlen(string) - 1, j = 0; i >= 0; i--, j++)
+    for(int i = 0, j = tamanho - 1; i < j; i++, j--)
     {
-        invertida[j] = string[i];
-    }
-    for(k = 0; k < j; k++)
-    {
-        string[k] = invertida[k];
+        char caractere = string[i];
+        string[i] = string[j];
+        string[j] = caractere;
     }
 }
 
 int main(void)
 {
-    int n, i;
+    int tamanho;
 
-    do
+    while(scanf("%d\n", &tamanho) && tamanho > 0)
     {
-        scanf("%d\n", &n);
+        char string[tamanho + 1];
+        fgets(string, tamanho + 1, stdin);
+        inverter(string, tamanho);
+        printf("%s\n", string);
+    }
 
-        if(n)
-        {
-            char string[n + 1];
-            fgets(string, n + 1, stdin);
-            inverte(string, n);
-            printf("%s", string);
-        }
-    } while(n);
-
-	return(0);
+    return(0);
 }

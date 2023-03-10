@@ -3,25 +3,18 @@
 
 bool bissexto(int ano)
 {
-    return(ano % 4 == 0 && ( ano % 100 != 0 || ano % 400 == 0));
+    return(ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0));
 }
 
-int diasDoMes(int mes, int ano)
+int dias_do_mes(int mes, int ano)
 {
     if(mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12)
     {
-        return 31;
+        return(31);
     }
     else if(mes == 2)
     {
-        if(bissexto(ano))
-        {
-            return(29);
-        }
-        else
-        {
-            return(28);
-        }
+        return(bissexto(ano) ? 29 : 28);
     }
     else
     {
@@ -31,7 +24,7 @@ int diasDoMes(int mes, int ano)
 
 bool data(int dia, int mes, int ano)
 {
-    return((1 <= mes && mes <= 12) && (1 <= dia && dia <= diasDoMes(mes, ano)) && (1900 <= ano && ano <= 2100));
+    return(1 <= dia && dia <= dias_do_mes(mes, ano)) && (1900 <= ano && ano <= 2100);
 }
 
 int main(void)

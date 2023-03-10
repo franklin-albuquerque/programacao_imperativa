@@ -1,31 +1,39 @@
 #include <stdio.h>
 
-void imprime(int limite, int array[])
+void imprimir(int array[], int tamanho)
 {
-    int i;
-
-    for(i = 0; i < limite; i++)
+    for(int i = 0; i < tamanho; i++)
     {
-        printf("%d", array[i]);
+        printf("%d%s", array[i], (i < tamanho - 1) ? " " : "");
+    }
+}
 
-        if(i < limite - 1)
-        {
-            printf(" ");
-        }
+void inverter(int array[], int tamanho)
+{
+    int meio_par = (tamanho / 2);
+
+    for(int i = 0, j = tamanho - 1; i < meio_par; i++, j--)
+    {
+        int num = array[i];
+        array[i] = array[j];
+        array[j] = num;
     }
 }
 
 int main(void)
 {
-    int limite, i, j, tmp;
-    scanf("%d", &limite);
-    int array[limite];
+    int tamanho;
+    scanf("%d", &tamanho);
 
-    for(tmp = limite - 1; tmp >= 0; tmp--)
+    int array[tamanho];
+
+    for(int i = 0; i < tamanho; i++)
     {
-        scanf("%d", &array[tmp]);
+        scanf("%d", &array[i]);
     }
-    imprime(limite, array);
+
+    inverter(array, tamanho);
+    imprimir(array, tamanho);
 
     return(0);
 }

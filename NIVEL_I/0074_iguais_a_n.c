@@ -1,12 +1,11 @@
 #include <stdio.h>
+#define LIMITE 100
 
-void iguais_a_n(int array[], int cont)
+void pos_nros_iguais_a_n(int array[], int numero)
 {
-    int i;
-
-    for(i = 0; i < cont - 1; i++)
+    for(int i = 0; i < LIMITE; i++)
     {
-        if(array[i] == array[cont - 1])
+        if(array[i] == numero)
         {
             printf("%d\n", i);
         }
@@ -15,14 +14,15 @@ void iguais_a_n(int array[], int cont)
 
 int main(void)
 {
-    int array[101], i;
+    int array[LIMITE], n;
 
-    for(i = 0; i < 101; i++)
+    for(int i = 0; i < LIMITE; i++)
     {
         scanf("%d", &array[i]);
     }
+    scanf("%d", &n);
 
-    iguais_a_n(array, i);
+    pos_nros_iguais_a_n(array, n);
 
     return(0);
 }
